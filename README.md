@@ -109,32 +109,7 @@ REACT_APP_API_URL=http://localhost:3000/api
 # Construir a imagem Docker
 docker-compose up -d --build
 
-O frontend estará acessível em `http://localhost:3000`.
-
-## 📂 Estrutura do Projeto
-
-A estrutura de pastas foi organizada para promover a modularidade e a manutenibilidade do código, essencial para um projeto de qualquer escala:
-
-```
-.
-├── public/                # Arquivos estáticos
-├── src/
-│   ├── assets/            # Imagens, ícones, etc.
-│   ├── components/        # Componentes reutilizáveis (e.g., Button, Input, Modal, Pagination, ClientForm)
-│   ├── hooks/             # Custom Hooks (se houver, para lógica reutilizável)
-│   ├── services/          # Funções para interação com a API (e.g., api.ts)
-│   ├── pages/             # Componentes de páginas/rotas (e.g., ClientsPage para a listagem)
-│   ├── styles/            # Arquivos de estilo globais (e.g., tailwind.css)
-│   ├── types/             # Definições de tipos TypeScript (interfaces)
-│   ├── App.tsx            # Componente principal e roteamento
-│   └── index.tsx          # Ponto de entrada da aplicação
-├── .env.example           # Exemplo de variáveis de ambiente
-├── .gitignore             # Arquivos e pastas a serem ignorados pelo Git
-├── package.json           # Dependências e scripts do projeto
-├── tailwind.config.js     # Configuração do Tailwind CSS
-├── tsconfig.json          # Configuração do TypeScript
-└── README.md              # Este arquivo
-```
+O frontend estará acessível em `http://localhost:5173`.
 
 ## Imagens e vídeo
 ![Captura do docker rodando o container do projeto](https://drive.google.com/file/d/1z8ro3a_AkFEjHh5Nrlcq46qRXSjBbPwV/view?usp=sharing)
