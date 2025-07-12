@@ -109,11 +109,12 @@ REACT_APP_API_URL=http://localhost:3000/api
 # Construir a imagem Docker
 docker-compose up -d --build
 ```
+* inserir um registro na tabela `users(name)` para conseguir fazer o primeiro login.
 
 O frontend estará acessível em `http://localhost:5173`.
 
 ## Imagens e vídeo
-![Captura do docker rodando o container do projeto](https://drive.google.com/file/d/1z8ro3a_AkFEjHh5Nrlcq46qRXSjBbPwV/view?usp=sharing)
+Container do projeto rodando no Docker [Captura do docker rodando o container do projeto](https://drive.google.com/file/d/1z8ro3a_AkFEjHh5Nrlcq46qRXSjBbPwV/view?usp=sharing)
 
 Assista à demonstração do projeto: [Video de Demonstração (Google Drive)](https://drive.google.com/file/d/1oHlGfqJKEiqu8ZJFU-aVwKhRhfHKbplx/view?usp=sharing)
 
