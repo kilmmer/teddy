@@ -198,6 +198,8 @@ export function Clients() {
 				addClientToSelection({
 					id: client.id,
 					name: client.name,
+					salary: client.salary,
+					company: client.company,
 				});
 			}
 		}

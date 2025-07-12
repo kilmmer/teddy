@@ -11,8 +11,8 @@ import {
 interface SelectedClient {
 	id: string;
 	name: string;
-	// Adicione outros campos que você precise exibir na lista de selecionados
-	// email?: string; // Se for relevante para a exibição na lista de selecionados
+	salary?: string;
+	company?: string;
 }
 
 // Interface para o valor do contexto
