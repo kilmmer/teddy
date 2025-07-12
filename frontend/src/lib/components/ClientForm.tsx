@@ -7,7 +7,7 @@ interface ClientFormProps {
 		name: string;
 		salary?: string;
 		company?: string;
-		id?: number;
+		id?: string;
 	};
 	isLoading?: boolean;
 }

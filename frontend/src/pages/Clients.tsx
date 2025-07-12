@@ -83,32 +83,33 @@ export function Clients() {
 			}
 			eventSourceRef.current = new EventSource(sseUrl);
 
-			eventSourceRef.current.addEventListener('client.created', (event) => {
+			eventSourceRef.current.addEventListener('client.created', () => {
 				try {
-					const newClientData: Client = JSON.parse(event.data);
-					setClients((prevClients) => {
-						const updatedClient = {
-							...newClientData,
-							id: String(newClientData.id),
-							status: 'created',
-						};
+					// const newClientData: Client = JSON.parse(event.data);
+					fetchClients(); // Recarrega a lista de clientes após receber o evento
+					// setClients((prevClients) => {
+					// 	const updatedClient: Client = {
+					// 		...newClientData,
+					// 		id: String(newClientData.id),
+					// 		status: 'created',
+					// 	};
 
-						const existingClientIndex = prevClients.findIndex(
-							(c) =>
-								(c.id && c.id === updatedClient.id) || c.status === 'creating',
-						);
+					// 	const existingClientIndex = prevClients.findIndex(
+					// 		(c) =>
+					// 			(c.id && c.id === updatedClient.id) || c.status === 'creating',
+					// 	);
 
-						if (existingClientIndex !== -1) {
-							const updatedClients = [...prevClients];
-							updatedClients[existingClientIndex] = updatedClient;
-							return updatedClients;
-						} else {
-							if (!prevClients.some((c) => c.id === updatedClient.id)) {
-								return [updatedClient, ...prevClients];
-							}
-							return prevClients;
-						}
-					});
+					// 	if (existingClientIndex !== -1) {
+					// 		const updatedClients = [...prevClients];
+					// 		updatedClients[existingClientIndex] = updatedClient;
+					// 		return updatedClients;
+					// 	} else {
+					// 		if (!prevClients.some((c) => c.id === updatedClient.id)) {
+					// 			return [updatedClient, ...prevClients];
+					// 		}
+					// 		return prevClients;
+					// 	}
+					// });
 				} catch (e) {
 					console.error('Erro ao fazer parse do evento SSE:', e);
 				}
@@ -134,7 +135,7 @@ export function Clients() {
 		salary?: string;
 		company?: string;
 	}) => {
-		if (editClientId) {
+		if (editClientId !== undefined) {
 			try {
 				await api.patch(`/clients/${editClientId}`, clientData);
 				setClients((prev) =>
@@ -287,8 +288,6 @@ export function Clients() {
 									salary={client.salary || ''}
 									company={client.company || ''}
 									status={client.status}
-									// Passa o cliente completo para a função de adição/remoção
-									// E indica se ele está selecionado para mudar o ícone/estilo do botão +
 									onAdd={() => handleAddClientToSelection(client)}
 									isSelected={isClientSelected(client.id)}
 									onEdit={() => client.id && handleEditClient(client.id)}
@@ -337,6 +336,7 @@ export function Clients() {
 						setEditClientId(undefined);
 					}}
 					initialData={editClientData}
+					isLoading={loading}
 				/>
 			</Modal>
 			{clientToDelete && (

@@ -96,6 +96,7 @@ export class ClientsService implements OnModuleInit {
   }
 
   async update(id: string, updateClientDto: UpdateClientDto): Promise<Client> {
+    console.log(`Atualizando cliente com ID: ${id}`, updateClientDto);
     const client = await this.clientsRepository.findOne({ where: { id } });
     if (!client) {
       throw new NotFoundException(`Client with ID "${id}" not found.`);

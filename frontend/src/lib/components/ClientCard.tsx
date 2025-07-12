@@ -8,14 +8,15 @@ import {
 } from 'react-icons/bi'; // Importe BiLoaderAlt e BiErrorCircle
 
 interface ClientCardProps {
-	id?: string; // Tornar opcional para cards em criação
+	id: string;
 	name: string;
-	salary: string; // Ou number, dependendo da sua tipagem
+	salary: string;
 	company: string;
-	status?: 'creating' | 'created' | 'failed'; // Novo prop de status
-	onAdd?: () => void;
-	onEdit?: () => void;
-	onDelete?: () => void;
+	status?: 'creating' | 'created' | 'failed';
+	onAdd: () => void;
+	isSelected: boolean;
+	onEdit: () => void;
+	onDelete: () => void;
 }
 
 const formatSalary = (salary: string) => {
@@ -84,7 +85,7 @@ export function ClientCard({
 					Salário: {formatSalary(salary)}
 				</p>
 				<p className="text-gray-600 text-sm text-center mb-3">
-					Empresa: {company}
+					Empresa: {formatSalary(company)}
 				</p>
 			</div>
 			<div className="mt-auto flex justify-between space-x-2">
