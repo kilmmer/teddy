@@ -41,7 +41,6 @@ export class ClientsService implements OnModuleInit {
       // 'client.created' é o nome do padrão do evento
       clientId: savedClient.id, // O ID real do cliente salvo no DB
       name: savedClient.name,
-      email: savedClient.email,
       salary: savedClient.salary,
       company: savedClient.company,
       timestamp: new Date(), // Adicione um timestamp para rastreamento
@@ -111,7 +110,6 @@ export class ClientsService implements OnModuleInit {
       // Novo evento!
       clientId: updatedClient.id,
       name: updatedClient.name,
-      email: updatedClient.email,
       salary: updatedClient.salary,
       company: updatedClient.company,
       timestamp: new Date(),

@@ -1,5 +1,5 @@
 // src/clients/dto/create-client.dto.ts
-import { IsString, IsEmail, IsNotEmpty } from 'class-validator';
+import { IsString, IsNotEmpty } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger'; // Para documentação Swagger
 
 export class CreateClientDto {
@@ -7,14 +7,6 @@ export class CreateClientDto {
   @IsString()
   @IsNotEmpty({ message: 'O nome do cliente não pode ser vazio.' })
   name: string;
-
-  @ApiProperty({
-    description: 'Endereço de e-mail do cliente (deve ser único)',
-    example: 'eduardo@example.com',
-  })
-  @IsEmail({}, { message: 'Por favor, insira um e-mail válido.' })
-  @IsNotEmpty({ message: 'O e-mail do cliente não pode ser vazio.' })
-  email: string;
 
   @ApiProperty({
     description: 'Salário do cliente, formatado como string',
