@@ -9,7 +9,7 @@ export function Header({ userName }: HeaderProps) {
 
 	const handleLogout = () => {
 		localStorage.clear(); // ou localStorage.removeItem('token')
-		navigate('/login');
+		navigate('/');
 	};
 
 	return (

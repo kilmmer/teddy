@@ -1,310 +1,25 @@
-// // // src/lib/components/ClientForm.tsx
-// // import React, { useState, useEffect } from 'react';
-// // import { Input } from './Input';
-// // import { Button } from './Button';
-
-// // interface ClientFormProps {
-// // 	initialData?: {
-// // 		name: string;
-// // 		email: string;
-// // 		salary?: string;
-// // 		company?: string;
-// // 		id?: number;
-// // 	};
-// // 	onSubmit: (data: {
-// // 		name: string;
-// // 		email: string;
-// // 		salary?: string;
-// // 		company?: string;
-// // 	}) => void;
-// // 	onCancel?: () => void;
-// // 	isLoading?: boolean;
-// // }
-
-// // const ClientForm: React.FC<ClientFormProps> = ({
-// // 	initialData,
-// // 	onSubmit,
-// // 	onCancel,
-// // 	isLoading,
-// // }) => {
-// // 	const [name, setName] = useState(initialData?.name || '');
-// // 	const [email, setEmail] = useState(initialData?.email || '');
-// // 	const [salary, setSalary] = useState(initialData?.salary || ''); // Adicione salário
-// // 	const [company, setCompany] = useState(initialData?.company || ''); // Adicione empresa
-// // 	const [errors, setErrors] = useState({
-// // 		name: '',
-// // 		email: '',
-// // 		salary: '',
-// // 		company: '',
-// // 	});
-
-// // 	useEffect(() => {
-// // 		if (initialData) {
-// // 			setName(initialData.name);
-// // 			setEmail(initialData.email);
-// // 			setSalary(initialData.salary || '');
-// // 			setCompany(initialData.company || '');
-// // 		}
-// // 	}, [initialData]);
-
-// // 	const validate = () => {
-// // 		let isValid = true;
-// // 		const newErrors = { name: '', email: '', salary: '', company: '' };
-
-// // 		if (!name.trim()) {
-// // 			newErrors.name = 'O nome é obrigatório.';
-// // 			isValid = false;
-// // 		}
-// // 		if (!email.trim()) {
-// // 			newErrors.email = 'O e-mail é obrigatório.';
-// // 			isValid = false;
-// // 		} else if (!/\S+@\S+\.\S+/.test(email)) {
-// // 			newErrors.email = 'E-mail inválido.';
-// // 			isValid = false;
-// // 		}
-// // 		if (!salary.trim()) {
-// // 			newErrors.salary = 'O salário é obrigatório.';
-// // 			isValid = false;
-// // 		}
-// // 		if (!company.trim()) {
-// // 			newErrors.company = 'A empresa é obrigatória.';
-// // 			isValid = false;
-// // 		}
-
-// // 		setErrors(newErrors);
-// // 		return isValid;
-// // 	};
-
-// // 	const handleSubmit = (e: React.FormEvent) => {
-// // 		e.preventDefault();
-// // 		if (validate()) {
-// // 			onSubmit({ name, email, salary, company });
-// // 		}
-// // 	};
-
-// // 	return (
-// // 		<form onSubmit={handleSubmit} className="p-4">
-// // 			<div className="mb-4">
-// // 				<label
-// // 					htmlFor="name"
-// // 					className="block text-sm font-medium text-gray-300 mb-1"
-// // 				>
-// // 					Nome
-// // 				</label>
-// // 				<Input
-// // 					id="name"
-// // 					type="text"
-// // 					placeholder="Nome do Cliente"
-// // 					value={name}
-// // 					onChange={(e) => setName(e.target.value)}
-// // 					className="w-full bg-gray-700 text-white border-gray-600 focus:ring-[#FF6B00]"
-// // 				/>
-// // 				{errors.name && (
-// // 					<p className="text-red-400 text-xs mt-1">{errors.name}</p>
-// // 				)}
-// // 			</div>
-// // 			<div className="mb-4">
-// // 				<label
-// // 					htmlFor="email"
-// // 					className="block text-sm font-medium text-gray-300 mb-1"
-// // 				>
-// // 					Email
-// // 				</label>
-// // 				<Input
-// // 					id="email"
-// // 					type="email"
-// // 					placeholder="email@example.com"
-// // 					value={email}
-// // 					onChange={(e) => setEmail(e.target.value)}
-// // 					className="w-full bg-gray-700 text-white border-gray-600 focus:ring-[#FF6B00]"
-// // 				/>
-// // 				{errors.email && (
-// // 					<p className="text-red-400 text-xs mt-1">{errors.email}</p>
-// // 				)}
-// // 			</div>
-// // 			<div className="mb-4">
-// // 				<label
-// // 					htmlFor="salary"
-// // 					className="block text-sm font-medium text-gray-300 mb-1"
-// // 				>
-// // 					Salário
-// // 				</label>
-// // 				<Input
-// // 					id="salary"
-// // 					type="text"
-// // 					placeholder="R$ 3.500,00"
-// // 					value={salary}
-// // 					onChange={(e) => setSalary(e.target.value)}
-// // 					className="w-full bg-gray-700 text-white border-gray-600 focus:ring-[#FF6B00]"
-// // 				/>
-// // 				{errors.salary && (
-// // 					<p className="text-red-400 text-xs mt-1">{errors.salary}</p>
-// // 				)}
-// // 			</div>
-// // 			<div className="mb-4">
-// // 				<label
-// // 					htmlFor="company"
-// // 					className="block text-sm font-medium text-gray-300 mb-1"
-// // 				>
-// // 					Empresa
-// // 				</label>
-// // 				<Input
-// // 					id="company"
-// // 					type="text"
-// // 					placeholder="Nome da Empresa"
-// // 					value={company}
-// // 					onChange={(e) => setCompany(e.target.value)}
-// // 					className="w-full bg-gray-700 text-white border-gray-600 focus:ring-[#FF6B00]"
-// // 				/>
-// // 				{errors.company && (
-// // 					<p className="text-red-400 text-xs mt-1">{errors.company}</p>
-// // 				)}
-// // 			</div>
-// // 			<div className="flex justify-end space-x-2">
-// // 				{onCancel && (
-// // 					<Button
-// // 						type="button"
-// // 						onClick={onCancel}
-// // 						className="bg-gray-600 hover:bg-gray-700 text-white"
-// // 					>
-// // 						Cancelar
-// // 					</Button>
-// // 				)}
-// // 				<Button
-// // 					type="submit"
-// // 					disabled={isLoading}
-// // 					className="bg-[#FF6B00] hover:bg-orange-700 text-white"
-// // 				>
-// // 					{isLoading
-// // 						? 'Salvando...'
-// // 						: initialData
-// // 						? 'Atualizar Cliente'
-// // 						: 'Adicionar Cliente'}
-// // 				</Button>
-// // 			</div>
-// // 		</form>
-// // 	);
-// // };
-
-// // export default ClientForm;
-
-// // src/lib/components/ClientForm.tsx (exemplo de como poderia ser)
-
-// import React, { useState } from 'react';
-
-// interface ClientFormProps {
-// 	onSubmit: (data: {
-// 		name: string;
-// 		email: string;
-// 		salary?: string;
-// 		company?: string;
-// 	}) => void;
-// 	onCancel: () => void;
-// 	initialData?: {
-// 		name: string;
-// 		email: string;
-// 		salary?: string;
-// 		company?: string;
-// 	}; // Para edição
-// }
-
-// export function ClientForm({
-// 	onSubmit,
-// 	onCancel,
-// 	initialData,
-// }: ClientFormProps) {
-// 	const [name, setName] = useState(initialData?.name || '');
-// 	const [salary, setSalary] = useState(initialData?.salary || '');
-// 	const [company, setCompany] = useState(initialData?.company || '');
-// 	const [email, setEmail] = useState(initialData?.email || ''); // Adicionado email, se for necessário
-
-// 	const handleSubmit = (e: React.FormEvent) => {
-// 		e.preventDefault();
-// 		onSubmit({ name, salary, company, email }); // Passe o email também, se usado
-// 	};
-
-// 	return (
-// 		<form onSubmit={handleSubmit} className="space-y-4">
-// 			<div>
-// 				{/* Input de Nome */}
-// 				<input
-// 					type="text"
-// 					placeholder="Digite o nome:"
-// 					value={name}
-// 					onChange={(e) => setName(e.target.value)}
-// 					className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 text-gray-800 placeholder-gray-400"
-// 					required
-// 				/>
-// 			</div>
-// 			<div>
-// 				{/* Input de Salário */}
-// 				<input
-// 					type="number"
-// 					placeholder="Digite o salário:"
-// 					value={salary}
-// 					onChange={(e) => setSalary(e.target.value)}
-// 					className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 text-gray-800 placeholder-gray-400"
-// 				/>
-// 			</div>
-// 			<div>
-// 				{/* Input de Valor da Empresa */}
-// 				<input
-// 					type="number"
-// 					placeholder="Digite o valor da empresa:"
-// 					value={company}
-// 					onChange={(e) => setCompany(e.target.value)}
-// 					className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 text-gray-800 placeholder-gray-400"
-// 				/>
-// 			</div>
-
-// 			<div className="pt-2">
-// 				{' '}
-// 				{/* Padding top para separar do último input */}
-// 				<button
-// 					type="submit"
-// 					className="w-full bg-[#FF6B00] hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded transition duration-200 ease-in-out"
-// 				>
-// 					Criar cliente
-// 				</button>
-// 			</div>
-// 			{/* Opcional: botão de cancelar se a lógica do modal não fechar sozinho */}
-// 			{/* <button type="button" onClick={onCancel} className="...">Cancelar</button> */}
-// 		</form>
-// 	);
-// }
-// src/lib/components/ClientForm.tsx
 import React, { useState, useEffect } from 'react';
-// Importe Input e Button se não estiverem no mesmo arquivo
-// import { Input } from './Input';
-// import { Button } from './Button';
 
 interface ClientFormProps {
-	onSubmit: (data: {
-		name: string;
-		// email: string; // Removido: se não há input de email, não precisa aqui
-		salary?: string;
-		company?: string;
-	}) => void;
+	onSubmit: (data: { name: string; salary?: string; company?: string }) => void;
 	onCancel: () => void;
 	initialData?: {
 		name: string;
-		// email: string; // Removido
 		salary?: string;
 		company?: string;
 		id?: number;
 	};
-	isLoading?: boolean; // Adicionei de volta, pois é uma boa prática para o botão
+	isLoading?: boolean;
 }
 
 export function ClientForm({
 	onSubmit,
 	onCancel,
 	initialData,
-	isLoading, // Destructuring da prop isLoading
+	isLoading,
 }: ClientFormProps) {
 	const [name, setName] = useState(initialData?.name || '');
 
-	// Estados para os valores formatados no input
 	const [salaryFormatted, setSalaryFormatted] = useState('');
 	const [companyFormatted, setCompanyFormatted] = useState('');
 
@@ -315,7 +30,6 @@ export function ClientForm({
 
 	const [errors, setErrors] = useState({
 		name: '',
-		// email: '', // Removido
 		salary: '',
 		company: '',
 	});
@@ -390,7 +104,6 @@ export function ClientForm({
 	};
 
 	// --- Handlers de Mudança Genéricos ---
-
 	const handleNumericInputChange = (
 		e: React.ChangeEvent<HTMLInputElement>,
 		setFormatted: React.Dispatch<React.SetStateAction<string>>,
@@ -405,7 +118,6 @@ export function ClientForm({
 	};
 
 	// --- Handlers Específicos ---
-
 	const handleSalaryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		handleNumericInputChange(e, setSalaryFormatted, setSalaryNumeric, 'R$ ');
 	};
@@ -473,10 +185,6 @@ export function ClientForm({
 					<p className="text-red-600 text-xs mt-1">{errors.name}</p>
 				)}
 			</div>
-
-			{/* O campo de e-mail foi removido de acordo com a sua indicação.
-                Se precisar dele novamente, adicione-o de volta na interface,
-                estados (email, setEmail), e no JSX, junto com sua validação. */}
 
 			<div>
 				<label

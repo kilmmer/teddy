@@ -57,10 +57,11 @@ export function Login() {
 		try {
 			const res = await api.post('/auth/login', { name });
 			// Assumindo que o token vem na propriedade 'token' da resposta
-			const token = res.data.token;
+			const token = res.data.accessToken;
 			if (token) {
 				localStorage.setItem('token', token);
-				localStorage.setItem('userName', name);
+				localStorage.setItem('userName', res.data.user.name);
+				localStorage.setItem('userId', res.data.user.id);
 			}
 			// alert(`Olá, ${name}!`);
 			navigate('clients');

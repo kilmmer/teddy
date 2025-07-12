@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './modules/auth/auth.module';
 import { ClientsModule as CustomersModule } from './modules/clients/clients.module';
@@ -54,7 +52,5 @@ import { MessagingModule } from './message_queue/mq.module';
     EventEmitterModule.forRoot(),
     MessagingModule, // Importa o módulo de mensagens
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
