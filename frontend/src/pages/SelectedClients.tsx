@@ -17,7 +17,7 @@ interface Client {
 	status?: 'creating' | 'created' | 'failed';
 }
 
-export function Clients() {
+export function SelectedClients() {
 	const [clients, setClients] = useState<Client[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);

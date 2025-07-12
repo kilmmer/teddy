@@ -173,14 +173,19 @@ Essa composição de equipe visa otimizar a produtividade e a qualidade, com o T
 
 ## 🤝 Contribuição e Próximos Passos (para avaliação)
 
-Este projeto é uma base sólida e demonstra a capacidade de construir aplicações frontend robustas. Em um cenário de projeto contínuo, os próximos passos poderiam incluir:
+Este projeto é uma base sólida e demonstra a capacidade de construir aplicações frontend robustas. Para a evolução e aprimoramento contínuo do sistema, os próximos passos e áreas de melhoria a serem exploradas incluem:
 
-  * **Testes Unitários e de Integração:** Implementação de testes com ferramentas como Jest e React Testing Library para garantir a qualidade do código.
-  * **Gerenciamento de Estado Global:** Utilização de Context API, Redux ou Zustand para um gerenciamento de estado mais complexo.
-  * **Otimizações de Performance:** Lazy loading, memoização de componentes.
-  * **Internacionalização (i18n):** Suporte a múltiplos idiomas.
-  * **Acessibilidade (a11y):** Melhorias para garantir que a aplicação seja utilizável por todos.
-  * **Documentação da API:** Se você for desenvolver a API, incluir uma breve documentação (ex: via OpenAPI/Swagger) sobre os endpoints.
+  * **Responsividade Aprimorada no Frontend:** Refinamento da interface para garantir uma experiência de usuário impecável em todos os dispositivos e tamanhos de tela, utilizando abordagens como Mobile-First, Flexbox/Grid e media queries avançadas.
+  * **Validações Abrangentes no Backend:** Implementação de validações de dados robustas e abrangentes no lado do servidor para garantir a integridade, segurança e consistência dos dados, prevenindo entradas inválidas ou maliciosas antes que atinjam o banco de dados.
+  * **Cobertura de Testes Elevada:** Expansão significativa da cobertura de testes, incluindo:
+      * **Testes Unitários:** Para componentes individuais e funções, garantindo que cada parte do código funcione conforme o esperado.
+      * **Testes de Integração:** Para verificar a interação entre diferentes módulos e serviços (incluindo as chamadas de API), assegurando que o sistema funcione como um todo.
+      * **Testes End-to-End (E2E):** (Opcional, mas valioso) Para simular cenários de usuário real e validar fluxos de trabalho completos na aplicação.
+  * **Gerenciamento de Estado Global:** Utilização de Context API, Redux ou Zustand para um gerenciamento de estado mais complexo e escalável em aplicações maiores.
+  * **Otimizações de Performance:** Implementação de técnicas como lazy loading de componentes e rotas, memoização (com `React.memo`, `useMemo`, `useCallback`) e otimização de renderização para garantir a máxima fluidez.
+  * **Internacionalização (i18n):** Adição de suporte a múltiplos idiomas, permitindo que a aplicação seja utilizada por um público global.
+  * **Acessibilidade (a11y):** Melhorias contínuas para garantir que a aplicação seja acessível a usuários com diferentes necessidades, seguindo as diretrizes WCAG.
+  * **Documentação da API:** Se o backend também fizer parte do escopo de desenvolvimento, a criação e manutenção de uma documentação detalhada da API (ex: via OpenAPI/Swagger) é fundamental para facilitar a integração e o entendimento por outros desenvolvedores.
 
 ## 📄 Licença
 
@@ -190,11 +195,9 @@ Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](https://www.
 
 **Desenvolvido por Kilmmer**
 
-  * **Perfil:** Desenvolvedor de Software com perfil desafiador. Possui experiência em arquiteturas de backend escaláveis, incluindo microsserviços e sistemas distribuídos.
-  * **Experiência com Backend:** Sólida atuação com Node.js (NestJS/ExpressJS), TypeScript, **PostgreSQL**, RabbitMQ e Redis para construção de APIs REST e sistemas de mensageria/cache. Experiência também com desenvolvimento mobile em Flutter.
-  * **GitHub:** [kilmmer](https://www.google.com/search?q=https://github.com/kilmmer)
+  * **Perfil:** Desenvolvedor de Software com perfil visionário e desafiador. Possui experiência em arquiteturas de backend escaláveis, incluindo microsserviços e sistemas distribuídos.
+  * **Experiência com Backend:** Sólida atuação com Node.js (NestJS/ExpressJS), TypeScript, PostgreSQL, RabbitMQ e Redis para construção de APIs REST e sistemas de mensageria/cache. Experiência também com desenvolvimento mobile em Flutter.
+  * **Interesses:** Aviação (comercial, civil, militar), carros, motos, motores, e estratégias de negócios e empresas.
+  * **GitHub:** [Seu\_Usuario\_GitHub](https://www.google.com/search?q=https://github.com/Seu_Usuario_GitHub)
 
-*Este README foi elaborado para o teste de Tech Lead da empresa Teddy, destacando as competências relevantes para a posição, incluindo a visão arquitetural de backend e planejamento de equipe.*
-
-```
-```
+*Este README foi elaborado para o teste de Tech Lead da empresa Teddy, destacando as competências relevantes para a posição, incluindo a visão arquitetural de backend, planejamento de equipe e foco em melhorias contínuas.*
