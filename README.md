@@ -108,6 +108,7 @@ REACT_APP_API_URL=http://localhost:3000/api
 ```bash
 # Construir a imagem Docker
 docker-compose up -d --build
+```
 
 O frontend estará acessível em `http://localhost:5173`.
 
