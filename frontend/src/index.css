@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Definindo uma classe customizada com @apply */
+.container-default {
+  @apply mx-auto p-4 max-w-screen-xl; /* Exemplo: um container padrão centralizado */
+}
+
+.card-shadow-default {
+  @apply shadow-md rounded-lg border border-gray-200; /* Exemplo: sombra e borda padrão de card */
+}
