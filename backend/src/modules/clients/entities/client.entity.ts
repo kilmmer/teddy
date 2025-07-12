@@ -15,9 +15,6 @@ export class Client {
   @Column({ type: 'varchar', length: 255, nullable: false })
   name: string;
 
-  @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
-  email: string;
-
   @Column({ type: 'varchar', length: 50, nullable: false }) // Ex: "R$ 3.500,00"
   salary: string;
 

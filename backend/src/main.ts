@@ -4,9 +4,10 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // Configuração de CORS
   app.enableCors({
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    origin: '*', // Permite todas as origens, ajuste conforme necessário
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   });
 
   app.enableShutdownHooks(); // Habilita ganchos de desligamento, se necessário

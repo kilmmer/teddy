@@ -103,33 +103,11 @@ REACT_APP_API_URL=http://localhost:3000/api
 
 **Observação:** Ajuste `REACT_APP_API_URL` para o endereço da API que você utilizará para o teste, caso seja fornecida uma. Caso contrário, utilize um placeholder ou um mock de API.
 
-### 4\. Executar o Projeto
-
-Para iniciar o servidor de desenvolvimento:
-
-```bash
-yarn start
-```
-
-Ou utilizando NPM:
-
-```bash
-npm start
-```
-
-O aplicativo estará disponível em `http://localhost:3000` (ou outra porta disponível, conforme indicado no terminal).
-
-### 5\. Executar com Docker (Opcional)
-
-Se você preferir executar o ambiente em um container Docker:
+### 4\. Executar com Docker
 
 ```bash
 # Construir a imagem Docker
-docker build -t projeto-avaliacao-teddy .
-
-# Rodar o container
-docker run -p 3000:3000 projeto-avaliacao-teddy
-```
+docker-compose up -d --build
 
 O frontend estará acessível em `http://localhost:3000`.
 

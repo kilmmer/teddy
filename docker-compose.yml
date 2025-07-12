@@ -35,7 +35,6 @@ services:
     depends_on:
       - postgres
       - rabbitmq
-    
 
   frontend:
     build: ./frontend
@@ -49,7 +48,6 @@ services:
       - VITE_API_URL=${VITE_API_URL}
     depends_on:
       - backend
-    
 
 volumes:
   pg_data:
