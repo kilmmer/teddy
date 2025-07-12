@@ -136,6 +136,11 @@ A estrutura de pastas foi organizada para promover a modularidade e a manutenibi
 └── README.md              # Este arquivo
 ```
 
+## Imagens e vídeo
+![Captura do docker rodando o container do projeto](https://drive.google.com/file/d/1z8ro3a_AkFEjHh5Nrlcq46qRXSjBbPwV/view?usp=sharing)
+
+Assista à demonstração do projeto: [Video de Demonstração (Google Drive)](https://drive.google.com/file/d/1oHlGfqJKEiqu8ZJFU-aVwKhRhfHKbplx/view?usp=sharing)
+
 ## 📊 Estimativas para Desenvolvimento de Painel Administrativo
 
 Considerando um painel administrativo com funcionalidades de gestão de usuários, relatórios básicos, auditoria de logs e configuração de sistema, estimamos o seguinte para uma primeira fase de desenvolvimento:
